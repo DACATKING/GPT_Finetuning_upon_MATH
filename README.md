@@ -6,9 +6,6 @@ This project focuses on fine-tuning GPT-3.5 and GPT-4 models to enhance their ma
 
 ## Repository Structure
 
-- `data_process/`: Contains scripts for data preprocessing, including:
-  - `data_cleaning.py`: Cleans and formats raw mathematical datasets.
-  - `data_tokenization.py`: Tokenizes the cleaned data for model training.
 - `fine_tune_gpt3.5_math_main.py`: Main script for fine-tuning the GPT-3.5 model on mathematical datasets.
 - `fine_tune_gpt4omini_math_main.py`: Main script for fine-tuning the GPT-4 model on mathematical datasets.
 - `README.md`: Provides an overview of the project and instructions for usage.
@@ -17,12 +14,6 @@ This project focuses on fine-tuning GPT-3.5 and GPT-4 models to enhance their ma
 
 To fine-tune the models, follow these steps:
 
-1. **Data Preparation**: Preprocess the raw data using the scripts in the `data_process/` directory.
-   ```bash
-   python data_process/data_cleaning.py
-   python data_process/data_tokenization.py
-   ```
-2. **Fine-Tuning**: Execute the appropriate fine-tuning script.
    - For GPT-3.5:
      ```bash
      python fine_tune_gpt3.5_math_main.py --data_path=processed_data.json --output_dir=gpt3.5_finetuned
@@ -31,7 +22,6 @@ To fine-tune the models, follow these steps:
      ```bash
      python fine_tune_gpt4omini_math_main.py --data_path=processed_data.json --output_dir=gpt4_finetuned
      ```
-3. **Evaluation**: Assess the performance of the fine-tuned models using evaluation scripts (to be implemented).
 
 ## Results and Observations
 
@@ -47,14 +37,6 @@ To fine-tune the models, follow these steps:
      - **Fine-tuned GPT-3.5 Turbo**: 43% accuracy.
    - This decrease in overall accuracy suggests a trade-off, where improvements in specific problem types (like trigonometry) might come at the expense of general performance.
 
-3. **Performance on HARDMath Dataset**
-   - The HARDMath dataset evaluates multi-step reasoning capabilities:
-     - GPT-3.5 Turbo (0-shot): 6.04% accuracy.
-     - GPT-3.5 Turbo (5-shot Chain of Thought): 24.6% accuracy.
-     - GPT-4 (5-shot Chain of Thought): 43.8% accuracy.
-     - o1-mini (5-shot Chain of Thought): 62.3% accuracy.
-   - Even with fine-tuning, GPT models struggled with HARDMath's complex reasoning tasks, highlighting the need for further advancements.
-
 ### Observations
 - Fine-tuning yielded significant improvements in solving underrepresented problems like trigonometry.
 - However, overall accuracy dropped, emphasizing the need for balanced datasets that cover a wide range of mathematical problems.
@@ -68,5 +50,3 @@ This study demonstrates the potential of fine-tuning LLMs to improve specific ma
 ## References
 
 - [Measuring Mathematical Problem Solving With the MATH Dataset](https://arxiv.org/abs/2109.04990)
-- [HARDMath: A Benchmark for Evaluating Mathematical Reasoning in LLMs](https://arxiv.org/abs/2304.03360)
-- [ProofNet: Benchmarking Large Language Models with Formal Mathematical Proofs](https://arxiv.org/abs/2302.01995)
